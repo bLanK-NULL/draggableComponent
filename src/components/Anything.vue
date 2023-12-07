@@ -1,10 +1,17 @@
 <template>
-    <div class="btn">
-        button
+    <div class="btn" @click="function() {console.log('内容物被click')}">
+        <div>{{ props.data.text }}</div>
     </div>
 </template>
 
 <script setup lang="ts">
+import { onMounted } from 'vue';
+
+const props = defineProps({
+    data: {
+        default: []
+    }
+})
 
 </script>
 
@@ -12,8 +19,7 @@
 /*内容物最好是border-box*/
 .btn {
     box-sizing: border-box;
-    width: 120px;
-    height: 50px;
+    width: fit-content;
     background-color: aquamarine;
     font-size: 1em;
     border-radius: 4px;
