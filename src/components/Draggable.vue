@@ -182,6 +182,5 @@ onMounted(() => {
 
 .item_drag:hover {
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.2);
-    border: 2px solid #999;
 }
 </style>
