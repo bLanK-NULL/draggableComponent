@@ -13,17 +13,16 @@ onMounted(() => {
         e.stopPropagation()
     }, true)
 })
-// defineExpose({
-//     moveOnX,
-//     moveOnY
-// })
 </script>
 
 <style scoped>
 .item {
-    /*item 要全包括内容物, 默认上下margin=5px*/
+    /*item 要全包括内容物(不包括margin), 默认上下margin=5px*/
+    /*display: inline-block;*/
+
     width: fit-content;
-    margin: 5px 0;
+    border-radius: 4px;
+    overflow: hidden;
 }
 
 

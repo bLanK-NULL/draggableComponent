@@ -22,10 +22,10 @@ const props = defineProps({
     width: fit-content;
     background-color: aquamarine;
     font-size: 1em;
-    border-radius: 4px;
     text-align: center;
     line-height: 40px;
     padding: 5px;
     user-select: none;
+
 }
 </style>

@@ -2,7 +2,7 @@
     <h1>draggable component</h1>
     <button @click="lianxian" :style="{color: lianxianBegin?'green' : 'black'}">点击开始连线</button>
     <hr>
-    <Draggable :items="items" :lianxianBegin="lianxianBegin">
+    <Draggable :items="items" :lianxianBegin="lianxianBegin" @closeLianxian="closeLianxian">
         <template #default="{ data }">
             <DraggableItem>
                 <Anything :data="data"></Anything>
@@ -40,6 +40,11 @@ function lianxian(e) {
         console.log('连线结束...');
         lianxianBegin.value = false;
     }
+}
+function closeLianxian() {
+    console.log('连线关闭!');
+    
+    lianxianBegin.value = false;
 }
 </script>
 <style scoped></style>

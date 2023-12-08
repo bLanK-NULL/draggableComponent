@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SVG Line Example</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body style="height: 3000px;">
+    <div style="height: 300px; box-sizing: border-box; border: 1px solid black; background: antiquewhite; ">something</div>
+    <svg id="my-svg" width="500" height="500" viewBox="0 0 500 1000"  style="border: 1px solid red;">
+        <rect x="0" y="0" width="500" height="500" fill="pink" />
+        <rect x="0" y="500" width="500" height="500" fill="yellow"></rect>
+        <line id="my-line1" x1="0" y1="0" x2="500" y2="1000" stroke="black" stroke-width="1" />
+        <line id="my-line2" x1="0" y1="1000" x2="500" y2="0" stroke="blue" stroke-width="1" />
+    </svg>
+
+    <svg id="my-svg" width="500" height="500"   style="border: 1px solid red; position:absolute;top:0;left:0">
+        <path d="M0 0 Q100 0 100 100 T 200 200 " stroke='black' fill="transparent" stroke-dasharray="5,5"></path>
+    </svg>
+    <script>
+        // 获取SVG元素和直线元素
+        const svg = document.getElementById('my-svg');
+        const line = document.getElementById('my-line');
+        const dots = [{
+            x: 0,
+            y: 0,
+        }]
+        let dotsCount = 0;
+
+        // 监听页面上的点击事件
+        svg.addEventListener('click', updateLine);
+
+        // 更新直线的位置
+        function updateLine(event) {
+            console.log('click');
+            console.log(event.pageY);
+            dotsCount++
+            dots[dotsCount % 2] = { x: event.clientX, y: event.clientY }
+
+            // 更新直线的位置
+            // line.setAttribute('x1', dots[0].x);
+            // line.setAttribute('y1', dots[0].y);
+            // line.setAttribute('x2', dots[1].x);
+            // line.setAttribute('y2', dots[1].y);
+        }
+    </script>
+</body>
+
+</html>
