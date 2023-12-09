@@ -23,7 +23,6 @@ onMounted(() => {
     width: fit-content;
     border-radius: 4px;
     overflow: hidden;
+    /*    position: static;*/
 }
- 
-
 </style>

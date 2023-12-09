@@ -1,8 +1,7 @@
 <template>
     <h1>draggable component</h1>
-    <button @click="lianxian" :style="{color: lianxianBegin?'green' : 'black'}">点击开始连线</button>
     <hr>
-    <Draggable :items="items" :lianxianBegin="lianxianBegin" @closeLianxian="closeLianxian">
+    <Draggable :items="items">
         <template #default="{ data }">
             <DraggableItem>
                 <Anything :data="data"></Anything>
@@ -10,6 +9,8 @@
         </template>
 
     </Draggable>
+
+    <footer class="footer"></footer>
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';
@@ -20,7 +21,6 @@ const items = [
     {
         id: 1,
         text: 'item 1',
-
     },
     {
         id: 2,
@@ -31,20 +31,11 @@ const items = [
         text: 'item 3',
     },
 ];
-let lianxianBegin = ref(false);
-function lianxian(e) {
-    if (!lianxianBegin.value) {
-        console.log('连线开始...');
-        lianxianBegin.value = true;
-    } else {
-        console.log('连线结束...');
-        lianxianBegin.value = false;
-    }
-}
-function closeLianxian() {
-    console.log('连线关闭!');
-    
-    lianxianBegin.value = false;
-}
+
 </script>
-<style scoped></style>
+<style scoped>
+footer {
+    height: 2000px;
+    background-color: bisque;
+}
+</style>
